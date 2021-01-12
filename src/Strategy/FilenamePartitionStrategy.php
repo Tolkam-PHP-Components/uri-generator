@@ -17,7 +17,7 @@ class FilenamePartitionStrategy implements GeneratorStrategyInterface
         'prefix' => '',
         'segmentLength' => 2,
         'segmentsCount' => 4,
-        'glue' => DIRECTORY_SEPARATOR,
+        'glue' => '/',
     ];
     
     /**
