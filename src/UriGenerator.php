@@ -41,7 +41,7 @@ class UriGenerator implements UriGeneratorInterface
      * @return UriGeneratorInterface
      * @throws UriGeneratorException
      */
-    public function addStrategy(GeneratorStrategyInterface $strategy, string $alias = null)
+    public function addStrategy(GeneratorStrategyInterface $strategy, string $alias = null): self
     {
         $strategies = &$this->strategies;
         if (isset($strategies[$alias])) {
@@ -69,10 +69,10 @@ class UriGenerator implements UriGeneratorInterface
             return $this->defaultStrategy;
         }
         
-        if (!$strategy = &$this->strategies[$strategyAlias] ?? null) {
+        if (!isset($this->strategies[$strategyAlias])) {
             throw new UriGeneratorException(sprintf('Unknown strategy "%s"', $strategyAlias));
         }
         
-        return $strategy;
+        return  $this->strategies[$strategyAlias];
     }
 }
